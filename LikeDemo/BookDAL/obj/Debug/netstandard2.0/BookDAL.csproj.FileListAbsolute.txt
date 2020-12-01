@@ -1,0 +1,5 @@
+D:\Mvc\LikeDemo\LikeDemo\BookDAL\bin\Debug\netstandard2.0\BookDAL.deps.json
+D:\Mvc\LikeDemo\LikeDemo\BookDAL\bin\Debug\netstandard2.0\BookDAL.dll
+D:\Mvc\LikeDemo\LikeDemo\BookDAL\obj\Debug\netstandard2.0\BookDAL.csprojAssemblyReference.cache
+D:\Mvc\LikeDemo\LikeDemo\BookDAL\obj\Debug\netstandard2.0\BookDAL.AssemblyInfoInputs.cache
+D:\Mvc\LikeDemo\LikeDemo\BookDAL\obj\Debug\netstandard2.0\BookDAL.AssemblyInfo.cs

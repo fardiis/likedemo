@@ -1,0 +1,57 @@
+﻿@model BookViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+
+
+    .heart {
+        fill: none;
+        position: relative;
+        stroke: red;
+        top: 5px;
+        width: 50px;
+        animation: pulse 1s ease infinite
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    @foreach (var item in Model.books)
+    {
+        <p>@item.BookName</p>
+        <p>@item.BookDetail</p>
+
+        <svg id="h-@item.BookId" value="@item.BookId" style="cursor:pointer" onclick="AddLike(@item.BookId)" class="heart" viewBox="0 0 32 29.6">
+            <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+  c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z" />
+        </svg>
+        <p id="@item.BookId"></p>
+
+    }
+
+</div>
+<script>
+    function AddLike(bookId) {
+        var request = new XMLHttpRequest();
+        request.open('post', '@Url.Action("AddLike")' + '?id=' + bookId);
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && this.status == 200) {
+                if (request.response==0) {
+                    document.getElementById(bookId).innerText = "liked";
+                    document.getElementById('h-' + bookId).style.fill = "red";
+
+                }
+                else {
+                    document.getElementById('h-' + bookId).style.fill = "white";
+                    document.getElementById(bookId).innerText = "disliked";
+                    document.getElementById('h-' + bookId).style.stroke = "red";
+
+
+                }
+            }
+        }
+        request.send();
+    }
+</script>
